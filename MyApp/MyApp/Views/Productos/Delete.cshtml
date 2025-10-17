@@ -1,0 +1,40 @@
+@model MyApp.Models.Producto
+
+@{
+    ViewData["Title"] = "Eliminar producto";
+}
+
+<div class="mx-auto max-w-3xl px-4 py-8">
+    <div class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">
+        <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
+            <h1 class="text-2xl font-semibold text-gray-900">Eliminar producto</h1>
+            <p class="mt-1 text-sm text-gray-500">Confirma si deseas eliminar el producto seleccionado del inventario.</p>
+        </div>
+        <div class="px-6 py-6">
+            <dl class="space-y-4">
+                <div>
+                    <dt class="text-sm font-medium text-gray-500">Nombre</dt>
+                    <dd class="text-base font-semibold text-gray-900">@Model.Nombre</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-gray-500">Código SKU</dt>
+                    <dd class="text-base text-gray-900">@Model.CodigoSKU</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-gray-500">Cantidad en stock</dt>
+                    <dd class="text-base text-gray-900">@Model.CantidadStock</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-gray-500">Fecha de alta</dt>
+                    <dd class="text-base text-gray-900">@Model.FechaAlta.ToString("dd/MM/yyyy")</dd>
+                </div>
+            </dl>
+
+            <form asp-action="Delete" method="post" class="mt-8 flex items-center justify-end space-x-4">
+                <input type="hidden" asp-for="Id" />
+                <a asp-action="Index" class="inline-flex items-center rounded border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">Cancelar</a>
+                <button type="submit" class="inline-flex items-center rounded bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Eliminar</button>
+            </form>
+        </div>
+    </div>
+</div>
