@@ -15,13 +15,14 @@ namespace MyApp.Migrations
                 name: "Productos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CodigoSKU = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    CantidadStock = table.Column<int>(type: "int", nullable: false),
-                    FechaAlta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Activo = table.Column<bool>(type: "bit", nullable: false)
+                    Nombre = table.Column<string>(maxLength: 200, nullable: false),
+                    CodigoSKU = table.Column<string>(maxLength: 100, nullable: false),
+                    CantidadStock = table.Column<int>(nullable: false),
+                    FechaAlta = table.Column<DateTime>(nullable: false),
+                    Activo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

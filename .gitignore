@@ -6,4 +6,5 @@
 /MyApp/.vs/MyApp
 /MyApp/MyApp/obj
 /MyApp/MyApp/bin
+MyApp/MyApp/MiniInventario.db
 dotnet-install.sh

@@ -15,7 +15,26 @@ namespace MyApp
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiniInventarioConnection")));
+
+            string? sqlServerConnection = builder.Configuration.GetConnectionString("MiniInventarioConnection");
+            string? sqliteConnection = builder.Configuration.GetConnectionString("SqliteConnection");
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                if (OperatingSystem.IsWindows() && !string.IsNullOrWhiteSpace(sqlServerConnection))
+                {
+                    options.UseSqlServer(sqlServerConnection);
+                    return;
+                }
+
+                if (!string.IsNullOrWhiteSpace(sqliteConnection))
+                {
+                    options.UseSqlite(sqliteConnection);
+                    return;
+                }
+
+                throw new InvalidOperationException("A valid database connection string was not provided.");
+            });
 
             WebApplication app = builder.Build();
 
