@@ -9,6 +9,7 @@
 - Use structured logging via Serilog.
 - Provide unit tests built with xUnit and FluentAssertions.
 - Publish Swagger/OpenAPI documentation.
+- Generate and commit Entity Framework Core migrations whenever entity classes change, and ensure the database is updated.
 
 ## Code Style
 - Write code and comments in English.
