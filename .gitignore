@@ -5,3 +5,5 @@
 /.vs
 /MyApp/.vs/MyApp
 /MyApp/MyApp/obj
+/MyApp/MyApp/bin
+dotnet-install.sh
