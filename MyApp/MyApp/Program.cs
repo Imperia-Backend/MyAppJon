@@ -15,7 +15,7 @@ namespace MyApp
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiniInventarioConnection")));
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             WebApplication app = builder.Build();
 
