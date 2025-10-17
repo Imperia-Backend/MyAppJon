@@ -10,6 +10,7 @@
 - Provide unit tests built with xUnit and FluentAssertions.
 - Publish Swagger/OpenAPI documentation.
 - Generate and commit Entity Framework Core migrations whenever entity classes change, and ensure the database is updated.
+- After any entity change, run `dotnet ef migrations add <Name>` followed by `dotnet ef database update` to apply the migrations.
 
 ## Code Style
 - Write code and comments in English.
